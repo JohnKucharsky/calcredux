@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Calc from "./Calc";
+import Modal from "./Modal";
+import { useSelector } from "react-redux";
+import { AiFillGithub } from "react-icons/ai";
 
 function App() {
+  const response = useSelector((state) => state.modal.response);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <div>
+      <div className="absolute-res">
+        <h1>{response.name}</h1>
+        <h1>{response.secondName}</h1>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          className="gitIcon"
+          href="https://github.com/JohnKucharsky?tab=repositories"
         >
-          Learn React
+          <AiFillGithub />
+          Visit GitHub
         </a>
-      </header>
+      </div>
+      <Calc />
+      <Modal />
     </div>
   );
 }
