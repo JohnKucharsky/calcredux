@@ -13,7 +13,7 @@ function App() {
         <h1>{response.secondName}</h1>
         <a
           className="gitIcon"
-          href="https://github.com/JohnKucharsky?tab=repositories"
+          href="https://github.com/JohnKucharsky/calcredux"
         >
           <AiFillGithub />
           Visit GitHub
