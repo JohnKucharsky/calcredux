@@ -17,6 +17,7 @@ const modalSlice = createSlice({
   initialState: {
     open: false,
     response: "",
+    idle: false,
   },
   reducers: {
     toggle(state) {
@@ -24,9 +25,13 @@ const modalSlice = createSlice({
     },
   },
   extraReducers: {
+    [submitForm.pending]: (state) => {
+      state.idle = true;
+    },
     [submitForm.fulfilled]: (state, action) => {
       state.error = true;
       state.response = action.payload;
+      state.idle = false;
     },
     [submitForm.rejected]: (state) => {
       state.error = true;
